@@ -15,11 +15,10 @@ def day_02_star1(box_ids):
     return two_count * three_count
 
 def day_02_star2(box_ids):
-    memo = [{} for _ in range(len(box_ids[0]))] # char_index: { string: bool }
+    memo = [{} for _ in range(len(box_ids[0]))]
     for box_id in box_ids:
         for i, _ in enumerate(box_id):
             id_with_char_missing = box_id[0:i] + box_id[i+1:]
-            # memo[i][id_with_char_missing] = False
             if id_with_char_missing not in memo[i]:
                 memo[i][id_with_char_missing] = True
             else:
