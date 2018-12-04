@@ -2,6 +2,7 @@ import unittest
 import day_01
 import day_02
 import day_03
+import day_04
 
 class AoCTests(unittest.TestCase):
     def test_01_star1(self):
@@ -31,3 +32,11 @@ class AoCTests(unittest.TestCase):
     def test_03_star2(self):
         claim_id = day_03.day_03_star2(day_03.read_input())
         self.assertEqual(claim_id, 415)
+
+    def test_04_star1(self):
+        guard_minute = day_04.day_04_star1(day_04.read_input())
+        self.assertEqual(guard_minute, 26281)
+
+    def test_04_star2(self):
+        guard_minute = day_04.day_04_star2(day_04.read_input())
+        self.assertEqual(guard_minute, 73001)
