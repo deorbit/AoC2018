@@ -16,7 +16,7 @@ def get_guards(records):
     for r in records:
         timestamp = datetime.strptime(r[0], "%Y-%m-%d %H:%M")
         
-        guard_match = re.match("Guard #(\d+) ", r[1])
+        guard_match = re.match(r'Guard #(\d+) ', r[1])
         if guard_match:
             guard_id = int(guard_match.group(1))
             if guard_id not in guards:
@@ -55,5 +55,4 @@ def day_04_star2(records):
     sorted_guards = sorted(guards.items(), key=lambda kv:max(kv[1]))
     guard_id = sorted_guards[-1][0]
     max_minute = sorted_guards[-1][1].index(max(sorted_guards[-1][1]))
-    print(guard_id, max_minute)
     return guard_id * max_minute
