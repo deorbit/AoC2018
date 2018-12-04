@@ -11,7 +11,6 @@ def read_input(fname="day_03_input.txt"):
         }
         claims = []
         for l in f:
-            print(l)
             (claim_id, left, top, width, height) = re.findall(r'^#(\d+) @ (\d+),(\d+): (\d+)x(\d+)$', l)[0]
             (claim_id, left, top, width, height) = (int(claim_id), int(left), int(top), int(width), int(height))
             if left < active_region['left']:
@@ -25,22 +24,19 @@ def read_input(fname="day_03_input.txt"):
             claims.append((claim_id, left, top, width, height))
     return (active_region, claims)
 
-def day_03_star1(input):
-    active_region_dims = input[0]
-    active_left = active_region_dims['left']
-    active_top = active_region_dims['top']
-    active_bottom = active_region_dims['bottom']
+def day_03_star1(region_claims):
+    active_region_dims = region_claims[0]
     active_width = active_region_dims['right'] - active_region_dims['left']
     active_height = active_region_dims['bottom'] - active_region_dims['top']
     active_region = [[0 for _ in range(active_width)] for _ in range(active_height)]
-    claims = input[1]
+    claims = region_claims[1]
     overlap = 0
 
     if len(claims) == 0:
         return 0
 
     for c in claims:
-        (claim_id, left, top, width, height) = c
+        (_, left, top, width, height) = c
         for y in range(top, top + height):
             for x in range(left, left + width):
                 active_region[y][x] += 1
@@ -49,16 +45,12 @@ def day_03_star1(input):
 
     return overlap
 
-def day_03_star2(input):
-    active_region_dims = input[0]
-    active_left = active_region_dims['left']
-    active_top = active_region_dims['top']
-    active_bottom = active_region_dims['bottom']
+def day_03_star2(region_claims):
+    active_region_dims = region_claims[0]
     active_width = active_region_dims['right'] - active_region_dims['left']
     active_height = active_region_dims['bottom'] - active_region_dims['top']
     active_region = [[0 for _ in range(active_width)] for _ in range(active_height)]
-    claims = input[1]
-    overlap = 0
+    claims = region_claims[1]
 
     if len(claims) == 0:
         return 0

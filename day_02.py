@@ -22,6 +22,5 @@ def day_02_star2(box_ids):
             if id_with_char_missing not in memo[i]:
                 memo[i][id_with_char_missing] = True
             else:
-                print(id_with_char_missing)
-                break
+                return id_with_char_missing
             
