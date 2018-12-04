@@ -5,9 +5,7 @@ def read_input(fname="day_04_input.txt"):
     records = []
     with open(fname) as f:
         for l in f:
-            # print(l)
             record = re.findall(r'^\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2})\] (.*$)', l)[0]
-            # print(record)
             records.append(record)
     return sorted(records, key=lambda x: x[0])
 
