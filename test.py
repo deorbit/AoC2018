@@ -1,5 +1,7 @@
 import unittest
-import day_01, day_02
+import day_01
+import day_02
+import day_03
 
 class AoCTests(unittest.TestCase):
     def test_01_star1(self):
@@ -21,3 +23,11 @@ class AoCTests(unittest.TestCase):
     
     def test_02_star2(self):
         day_02.day_02_star2(day_02.read_input())
+
+    def test_03_star1(self):
+        overlap = day_03.day_03_star1(day_03.read_input())
+        self.assertEqual(overlap, 100595)
+
+    def test_03_star2(self):
+        claim_id = day_03.day_03_star2(day_03.read_input())
+        self.assertEqual(claim_id, 415)
