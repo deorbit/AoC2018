@@ -3,6 +3,7 @@ import day_01
 import day_02
 import day_03
 import day_04
+import day_05
 
 class AoCTests(unittest.TestCase):
     def test_01_star1(self):
@@ -40,3 +41,11 @@ class AoCTests(unittest.TestCase):
     def test_04_star2(self):
         guard_minute = day_04.day_04_star2(day_04.read_input())
         self.assertEqual(guard_minute, 73001)
+
+    def test_05_star1(self):
+        remainder = day_05.day_05_star1(day_05.read_input())
+        self.assertEqual(11720, len(remainder))
+
+    def test_05_star2(self):
+        shortest_length = day_05.day_05_star2(day_05.read_input())
+        self.assertEqual(shortest_length, 4956)
