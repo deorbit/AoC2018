@@ -4,6 +4,7 @@ import day_02
 import day_03
 import day_04
 import day_05
+import day_06
 
 class AoCTests(unittest.TestCase):
     def test_01_star1(self):
@@ -49,3 +50,11 @@ class AoCTests(unittest.TestCase):
     def test_05_star2(self):
         shortest_length = day_05.day_05_star2(day_05.read_input())
         self.assertEqual(shortest_length, 4956)
+
+    def test_06_star1(self):
+        largest_area_size = day_06.day_06_star1(day_06.read_input())
+        self.assertEqual(largest_area_size, 2342)
+
+    def test_06_star2(self):
+        a = day_06.day_06_star2(day_06.read_input())
+        self.assertEqual(a, 0)
