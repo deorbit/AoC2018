@@ -5,6 +5,7 @@ import day_03
 import day_04
 import day_05
 import day_06
+import day_07
 
 class AoCTests(unittest.TestCase):
     def test_01_star1(self):
@@ -56,5 +57,9 @@ class AoCTests(unittest.TestCase):
         self.assertEqual(largest_area_size, 2342)
 
     def test_06_star2(self):
-        a = day_06.day_06_star2(day_06.read_input())
-        self.assertEqual(a, 0)
+        cell_count = day_06.day_06_star2(day_06.read_input())
+        self.assertEqual(cell_count, 43302)
+
+    def test_07_star1(self):
+        plan = day_07.day_07_star1(day_07.read_input("day_07_input.txt"))
+        self.assertEqual(''.join(plan), "EPWCFXKISTZVJHDGNABLQYMORU")
